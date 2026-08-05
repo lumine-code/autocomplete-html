@@ -1,0 +1,51 @@
+{
+  "name": "autocomplete-html",
+  "author": "lumine-code",
+  "version": "1.0.0",
+  "description": "HTML element and attribute autocompletions.",
+  "keywords": [
+    "element",
+    "attribute",
+    "tag",
+    "suggestion",
+    "completion"
+  ],
+  "repository": "https://github.com/lumine-code/autocomplete-html",
+  "bugs": {
+    "url": "https://github.com/lumine-code/autocomplete-html/issues"
+  },
+  "license": "MIT",
+  "main": "./lib/main",
+  "engines": {
+    "lumine": "^1.0.0"
+  },
+  "scripts": {
+    "test": "lumine --test spec",
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "update": "node ./update/update.js",
+    "update:test": "jest ./update/update.test.js"
+  },
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "1.0.0": "provideAutocomplete"
+      }
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@eslint/js": "^10.0.1",
+    "@webref/elements": "^2.1.0",
+    "chrome-devtools-frontend": "1.0.1070764",
+    "content": "github:mdn/content",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-n": "^18.2.2",
+    "globals": "^17.7.0",
+    "jest": "^30.4.2",
+    "joi": "^18.2.3",
+    "prettier": "^3.9.6"
+  }
+}
