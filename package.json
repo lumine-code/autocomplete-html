@@ -39,6 +39,11 @@
       }
     }
   },
+  "lem": {
+    "hold": {
+      "chrome-devtools-frontend": "pinned exactly: later releases removed the DOMPinnedProperties dataset the completions generator reads"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^8.0.1",
     "@eslint/js": "^10.0.1",
