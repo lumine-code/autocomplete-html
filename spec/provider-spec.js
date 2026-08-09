@@ -33,16 +33,18 @@ describe("HTML autocompletions", () => {
   }
 
   beforeEach(async () => {
-    await atom.packages.activatePackage("autocomplete-html");
-    await atom.packages.activatePackage("language-html");
-    await atom.workspace.open("test.html");
-    editor = atom.workspace.getActiveTextEditor();
+    await lumine.packages.activatePackage("autocomplete-html");
+    await lumine.packages.activatePackage("language-html");
+    await lumine.workspace.open("test.html");
+    editor = lumine.workspace.getActiveTextEditor();
     languageMode = editor.getBuffer().getLanguageMode();
     languageMode.useAsyncParsing = false;
     languageMode.useAsyncIndent = false;
     await languageMode.ready;
 
-    provider = atom.packages.getActivePackage("autocomplete-html").mainModule.provideAutocomplete();
+    provider = lumine.packages
+      .getActivePackage("autocomplete-html")
+      .mainModule.provideAutocomplete();
   });
 
   afterEach(async () => {
@@ -583,27 +585,27 @@ describe("HTML autocompletions", () => {
   });
 
   it("triggers autocomplete when an attibute has been inserted", async () => {
-    spyOn(atom.commands, "dispatch");
+    spyOn(lumine.commands, "dispatch");
     const suggestion = { type: "attribute", text: "whatever" };
     provider.onDidInsertSuggestion({ editor, suggestion });
 
     advanceClock(1);
-    expect(atom.commands.dispatch).toHaveBeenCalled();
+    expect(lumine.commands.dispatch).toHaveBeenCalled();
 
-    const { args } = atom.commands.dispatch.mostRecentCall;
-    expect(args[0].tagName.toLowerCase()).toBe("atom-text-editor");
+    const { args } = lumine.commands.dispatch.mostRecentCall;
+    expect(args[0].tagName.toLowerCase()).toBe("lumine-text-editor");
     expect(args[1]).toBe("autocomplete:activate");
   });
 
   it("does not error in EJS documents", async () => {
     waitsForPromise(async () => {
-      await atom.workspace.open("test.html.ejs");
-      editor = atom.workspace.getActiveTextEditor();
+      await lumine.workspace.open("test.html.ejs");
+      editor = lumine.workspace.getActiveTextEditor();
       editor.setText('<span><% a = ""; %></span>');
       return languageMode.atTransactionEnd();
     });
 
-    await atom.packages.activatePackage("language-javascript");
+    await lumine.packages.activatePackage("language-javascript");
     editor.setCursorBufferPosition([0, editor.getText().indexOf('""') + 1]);
     expect(() => getCompletions()).not.toThrow();
   });
