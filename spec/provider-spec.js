@@ -592,18 +592,16 @@ describe("HTML autocompletions", () => {
     advanceClock(1);
     expect(lumine.commands.dispatch).toHaveBeenCalled();
 
-    const { args } = lumine.commands.dispatch.mostRecentCall;
+    const { args } = lumine.commands.dispatch.calls.mostRecent();
     expect(args[0].tagName.toLowerCase()).toBe("lumine-text-editor");
     expect(args[1]).toBe("autocomplete:activate");
   });
 
   it("does not error in EJS documents", async () => {
-    waitsForPromise(async () => {
-      await lumine.workspace.open("test.html.ejs");
-      editor = lumine.workspace.getActiveTextEditor();
-      editor.setText('<span><% a = ""; %></span>');
-      return languageMode.atTransactionEnd();
-    });
+    await lumine.workspace.open("test.html.ejs");
+    editor = lumine.workspace.getActiveTextEditor();
+    editor.setText('<span><% a = ""; %></span>');
+    await languageMode.atTransactionEnd();
 
     await lumine.packages.activatePackage("language-javascript");
     editor.setCursorBufferPosition([0, editor.getText().indexOf('""') + 1]);
