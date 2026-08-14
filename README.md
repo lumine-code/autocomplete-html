@@ -10,11 +10,11 @@ HTML element and attribute autocompletions.
 
 ## Installation
 
-To install `autocomplete-html` search for _autocomplete-html_ in the Install pane of the Lumine settings or run `lumine --install lumine-code/autocomplete-html`.
+To install `autocomplete-html` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/autocomplete-html`.
 
 ## Services
 
-- **autocomplete.provider** (`1.0.0`): provided to supply HTML element and attribute suggestions to autocomplete.
+- `autocomplete.provider`: provided to supply HTML element and attribute suggestions to autocomplete.
 
 ## Contributing
 
