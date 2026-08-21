@@ -270,7 +270,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "deprecated_header"
+      "description": "The <rb> HTML element is used to delimit the base text component of a HTMLElement(ruby)  annotation, i.e., the text that is being annotated. One <rb> element should wrap each separate atomic segment of the base text."
     },
     "rt": {
       "attributes": [
@@ -452,7 +452,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "deprecated_header"
+      "description": "The <rtc> HTML element embraces semantic annotations of characters presented in a ruby of rb elements used inside of  HTMLElement(ruby)  element. rb elements can have both pronunciation (rt) and semantic (<rtc>) annotations."
     },
     "rp": {
       "attributes": [
@@ -2612,7 +2612,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "The <hr> HTML element represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section."
+      "description": "The <hr> HTML element represents a thematic break between elements: for example, a change of scene in a story, or a shift of topic within a section."
     },
     "pre": {
       "attributes": [
@@ -5179,7 +5179,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "The <kbd> HTML element represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device. By convention, the Glossary(user agent) defaults to rendering the contents of a <kbd> element using its default monospace font, although this is not mandated by the HTML standard."
+      "description": "The <kbd> HTML element represents user input (typically keyboard input). By default, the content text is displayed using the Glossary(user agent, user agent's) default monospace font."
     },
     "sub": {
       "attributes": [
@@ -10790,7 +10790,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "deprecated_header"
+      "description": "The <acronym> HTML element allows authors to clearly indicate a sequence of characters that compose an acronym or abbreviation for a word."
     },
     "bgsound": {
       "attributes": [
@@ -10973,7 +10973,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "Deprecated_Header"
+      "description": "The <dir> HTML element is used as a container for a directory of files and/or folders, potentially with styles and icons applied by the Glossary(user agent). Do not use this obsolete element; instead, you should use the ul element for lists, including lists of files."
     },
     "frame": {
       "attributes": [
@@ -11074,7 +11074,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "Deprecated_Header"
+      "description": "The <frame> HTML element defines a particular area in which another HTML document can be displayed. A frame should be used within a frameset."
     },
     "frameset": {
       "attributes": [
@@ -11183,7 +11183,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "Deprecated_header"
+      "description": "The <frameset> HTML element is used to contain frame elements."
     },
     "noframes": {
       "attributes": [
@@ -11274,7 +11274,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "deprecated_header"
+      "description": "The <noframes> HTML element provides content to be presented in browsers that don't support (or have disabled support for) the frame element. Although most commonly-used browsers support frames, there are exceptions, including certain special-use browsers including some mobile browsers, as well as text-mode browsers."
     },
     "isindex": {
       "attributes": [
@@ -11821,7 +11821,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "deprecated_header"
+      "description": "The <noembed> HTML element is an obsolete, non-standard way to provide alternative, or fallback, content for browsers that do not support the embed element or do not support the type of embedded content an author wishes to use. This element was deprecated in HTML 4.01 and above in favor of placing fallback content between the opening and closing tags of an object element."
     },
     "param": {
       "attributes": [
@@ -11916,7 +11916,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "Deprecated_Header"
+      "description": "The <param> HTML element defines parameters for an object element."
     },
     "plaintext": {
       "attributes": [
@@ -12007,7 +12007,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "deprecated_header"
+      "description": "The <plaintext> HTML element renders everything following the start tag as raw text, ignoring any following HTML. There is no closing tag, since everything after it is considered raw text."
     },
     "strike": {
       "attributes": [
@@ -12098,7 +12098,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "deprecated_header"
+      "description": "The <strike> HTML element places a strikethrough (horizontal line) over text."
     },
     "xmp": {
       "attributes": [
@@ -12190,7 +12190,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "deprecated_header"
+      "description": "## Summary"
     },
     "basefont": {
       "attributes": [
@@ -12372,7 +12372,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "deprecated_header"
+      "description": "The <big> HTML deprecated element renders the enclosed text at a font size one level larger than the surrounding text (medium becomes large, for example). The size is capped at the browser's maximum permitted font size."
     },
     "blink": {
       "attributes": [
@@ -12554,7 +12554,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "deprecated_header"
+      "description": "The <center> HTML element is a block-level element that displays its block-level or inline contents centered horizontally within its containing element. The container is usually, but isn't required to be, body."
     },
     "font": {
       "attributes": [
@@ -12648,7 +12648,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "Deprecated_Header"
+      "description": "The <font> HTML element defines the font size, color and face for its content."
     },
     "marquee": {
       "attributes": [
@@ -12750,7 +12750,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "Deprecated_Header"
+      "description": "The <marquee> HTML element is used to insert a scrolling area of text. You can control what happens when the text reaches the edges of its content area using its attributes."
     },
     "multicol": {
       "attributes": [
@@ -12932,7 +12932,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "deprecated_header"
+      "description": "The <nobr> HTML element prevents the text it contains from automatically wrapping across multiple lines, potentially resulting in the user having to scroll horizontally to see the entire width of the text."
     },
     "spacer": {
       "attributes": [
@@ -13114,7 +13114,7 @@
         "ariaValueNow",
         "ariaValueText"
       ],
-      "description": "deprecated_header"
+      "description": "The <tt> HTML element creates inline text which is presented using the Glossary(user agent, user agent's) default monospace font face. This element was created for the purpose of rendering text as it would be displayed on a fixed-width display such as a teletype, text-only screen, or line printer."
     },
     "math": {
       "description": "The <math> MathML element is the top-level MathML element, used to write a single mathematical formula. It can be placed in HTML content where flow content is permitted."
@@ -13195,7 +13195,7 @@
       "description": "The <mtd> MathML element represents a cell in a table or a matrix. It may only appear in a  MathMLElement(mtr)  element. This element is similar to the  HTMLElement(td)  element of HTML."
     },
     "maction": {
-      "description": "Deprecated_Header"
+      "description": "The <maction> MathML element allows to bind actions to mathematical expressions. By default, only the first child is rendered but some browsers may take into account actiontype and selection attributes to implement custom behaviors."
     },
     "semantics": {
       "description": "The <semantics> MathML element associates annotations with a MathML expression, for example its text source as a lightweight markup language or mathematical meaning expressed in a special XML dialect. Typically, its structure is:"
@@ -13252,7 +13252,7 @@
       "description": "The <image> SVG element includes images inside SVG documents. It can display glossary(raster image) files or other SVG files."
     },
     "switch": {
-      "description": "The <switch> SVG element evaluates any requiredFeatures, requiredExtensions and systemLanguage attributes on its direct child elements in order, and then renders the first child where these attributes evaluate to true."
+      "description": "The <switch> SVG element evaluates any requiredExtensions and systemLanguage attributes on its direct child elements in order, and then renders the first child where these attributes evaluate to true."
     },
     "rect": {
       "description": "The <rect> SVG element is a basic SVG shape that draws rectangles, defined by their position, width, and height. The rectangles may have their corners rounded."

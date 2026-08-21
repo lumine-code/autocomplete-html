@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# The update script's shallow clone of mdn/content
+update/.cache/
+
 # Build artifacts
 *.log
 npm-debug.log*

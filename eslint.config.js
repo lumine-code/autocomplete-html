@@ -8,6 +8,11 @@ const prettier = require("eslint-config-prettier");
 const runtimeModules = ["lumine", "electron"];
 
 module.exports = [
+  {
+    // The update script's shallow clone of mdn/content is upstream's tree,
+    // not this package's code.
+    ignores: ["update/.cache/**"],
+  },
   js.configs.recommended,
   n.configs["flat/recommended-script"],
   {

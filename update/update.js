@@ -5,8 +5,9 @@
   To use this `interface` in any meaningful way, we will utilize the dataset
   of Attributes that apply to each `interface` from Chromiums DevTools resource
   `https://github.com/ChromeDevTools/devtools-frontend`.
-  Finally from here we will utilize `https://github.com/mdn/content` to parse
-  the Markdown docs of MDN's website to retreive descriptions for each element.
+  Finally from here we will utilize `https://github.com/mdn/content` (a shallow
+  clone kept in `update/.cache/`) to parse the Markdown docs of MDN's website
+  to retreive descriptions for each element.
 
   Now for a summary of our `completions.json` file we aim to generate.
   There are two top level elements, `tags` and `attributes`, both objects.
@@ -54,6 +55,37 @@
 const curatedAttributes = require("./curated-attributes.json");
 const validate = require("./validate.js");
 const fs = require("fs");
+const path = require("path");
+const { spawnSync } = require("child_process");
+
+// The MDN content repository is a multi-gigabyte tree, so it is a shallow
+// on-demand clone in a gitignored cache rather than a devDependency npm would
+// re-fetch on every install (and whose transitive install scripts flake on
+// unauthenticated GitHub API rate limits).
+const MDN_CONTENT = path.join(__dirname, ".cache", "content");
+
+function ensureMdnContent() {
+  const git = (args) => spawnSync("git", args, { stdio: "inherit" });
+  if (fs.existsSync(path.join(MDN_CONTENT, "files"))) {
+    const fetched = git(["-C", MDN_CONTENT, "fetch", "--depth", "1", "--quiet", "origin", "main"]);
+    if (fetched.status === 0) {
+      git(["-C", MDN_CONTENT, "reset", "--hard", "--quiet", "FETCH_HEAD"]);
+    }
+    return;
+  }
+  fs.mkdirSync(path.dirname(MDN_CONTENT), { recursive: true });
+  const cloned = git([
+    "clone",
+    "--depth",
+    "1",
+    "--quiet",
+    "https://github.com/mdn/content.git",
+    MDN_CONTENT,
+  ]);
+  if (cloned.status !== 0) {
+    throw new Error("cloning mdn/content failed");
+  }
+}
 
 let GLOBAL_ATTRIBUTES = [];
 
@@ -63,6 +95,8 @@ async function update() {
   // cannot transform.
   const chromiumElementsShim = require("./chromium-elements-shim.js");
   const elements = require("@webref/elements");
+
+  ensureMdnContent();
 
   const chromiumElements = await chromiumElementsShim.bootstrap();
   const htmlElementsRaw = await elements.listAll();
@@ -222,13 +256,14 @@ function getElementDescription(element) {
   // to search valid locations. Since MDN has content of valid tags seperated
   // by essentially the spec they exist in. MDN reorganized its docs under
   // `reference/elements/`, so check there first and fall back to the old layout.
+  const web = path.join(MDN_CONTENT, "files", "en-us", "web");
   const filePath = ["html", "svg", "mathml"]
-    .flatMap((path) => [
+    .flatMap((area) => [
       // HTML uses `reference/elements` (plural); SVG and MathML use
       // `reference/element` (singular). Keep the pre-reorg `element` as fallback.
-      `./node_modules/content/files/en-us/web/${path}/reference/elements/${element}/index.md`,
-      `./node_modules/content/files/en-us/web/${path}/reference/element/${element}/index.md`,
-      `./node_modules/content/files/en-us/web/${path}/element/${element}/index.md`,
+      path.join(web, area, "reference", "elements", element, "index.md"),
+      path.join(web, area, "reference", "element", element, "index.md"),
+      path.join(web, area, "element", element, "index.md"),
     ])
     .find((f) => fs.existsSync(f));
 
