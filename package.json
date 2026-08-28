@@ -50,7 +50,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-n": "^18.3.0",
     "globals": "^17.11.0",
-    "jest": "^30.4.2",
+    "jest": "^30.5.0",
     "joi": "^18.2.5",
     "prettier": "^3.9.6"
   }
